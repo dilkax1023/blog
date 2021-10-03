@@ -5,13 +5,13 @@ import { Context } from '../context';
 import ListItem from '../components/ListItem';
 
 const Home = ({ navigation }) => {
-	const { state, addBlog } = useContext(Context);
+	const { state } = useContext(Context);
 
 	return (
 		<View style={styles.container}>
 			<FlatList
-				keyExtractor={(item) => item.id.toString()}
 				data={state}
+				keyExtractor={(blogPost) => blogPost.id.toString()}
 				renderItem={({ item }) => {
 					return (
 						<TouchableOpacity onPress={() => navigation.navigate('Blog', { id: item.id })}>
